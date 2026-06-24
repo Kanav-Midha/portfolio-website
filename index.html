@@ -96,7 +96,7 @@
   .hero-portrait { position: relative; opacity: 0; animation: fadeIn 1.4s 0.5s forwards; }
   .portrait-frame { position: relative; aspect-ratio: 1 / 1; border-radius: 50%;
     overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px var(--border); }
-  .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%;
+  .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center center;
     filter: contrast(1.05) saturate(1.05); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
   .portrait-frame:hover img { transform: scale(1.03); }
   .portrait-frame::after { content: ''; position: absolute; inset: 0;

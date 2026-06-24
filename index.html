@@ -56,8 +56,7 @@
   }
   nav.scrolled { padding: 1rem 3rem; }
   .logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; font-style: italic;
-    letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
-  .logo span { color: var(--accent); font-style: normal; }
+    letter-spacing: -0.02em; text-decoration: none; color: var(--accent); }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; font-family: var(--mono);
     font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; }
   .nav-links a { color: var(--text-muted); text-decoration: none; transition: color 0.3s;
@@ -111,8 +110,6 @@
   .section-title { font-family: var(--serif); font-size: clamp(2.5rem, 4.5vw, 4rem);
     font-weight: 400; letter-spacing: -0.035em; line-height: 1; flex: 1; }
   .section-title .italic { font-style: italic; color: var(--accent); font-weight: 300; }
-  .section-caption { font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim);
-    text-transform: uppercase; letter-spacing: 0.12em; text-align: right; }
   .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start; }
   .about-text { font-size: 1.2rem; line-height: 1.75; color: var(--text); font-weight: 300; }
   .about-text p { margin-bottom: 1.4rem; }
@@ -206,8 +203,8 @@
   .edu-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
   .edu-card.featured { background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
     border-color: var(--accent-deep); }
-  .edu-card-image { width: 100%; height: 160px; overflow: hidden; border-radius: 4px; margin-bottom: 2rem; border: 1px solid var(--border); }
-  .edu-card-image img { width: 100%; height: 100%; object-fit: cover; }
+  .edu-card-image { width: 100%; height: auto; overflow: hidden; border-radius: 4px; margin-bottom: 2rem; border: 1px solid var(--border); line-height: 0; }
+  .edu-card-image img { width: 100%; height: auto; display: block; }
   .edu-header { display: flex; justify-content: space-between; align-items: flex-start;
     margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1; }
   .edu-title-group { display: flex; align-items: center; gap: 1.2rem; }
@@ -274,14 +271,13 @@
     .edu-title-group { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-    .section-caption { text-align: left; }
   }
 </style>
 </head>
 <body>
 
 <nav id="navbar">
-  <a href="#" class="logo">Kanav Midha<span>.</span></a>
+  <a href="#" class="logo">Kanav Midha</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -316,7 +312,6 @@
 <section id="about" class="reveal">
   <div class="section-header">
     <h2 class="section-title">About <span class="italic">me</span></h2>
-    <span class="section-caption">A brief introduction</span>
   </div>
   <div class="about-grid">
     <div class="about-text">
@@ -417,7 +412,6 @@
 <section id="focus" class="reveal">
   <div class="section-header">
     <h2 class="section-title">Currently <span class="italic">building</span></h2>
-    <span class="section-caption">What I'm working on right now</span>
   </div>
   <div class="focus-list">
     <div class="focus-item">
@@ -466,7 +460,6 @@
 <section id="achievements" class="reveal">
   <div class="section-header">
     <h2 class="section-title">Achievements &amp; <span class="italic">recognition</span></h2>
-    <span class="section-caption">Selected highlights</span>
   </div>
   <div class="achievement-grid reveal-stagger">
     <div class="achievement-card">
@@ -493,7 +486,6 @@
 <section id="projects" class="reveal">
   <div class="section-header">
     <h2 class="section-title">Selected <span class="italic">projects</span></h2>
-    <span class="section-caption">Work and experiments</span>
   </div>
   <div class="projects-grid reveal-stagger">
     <div class="project-card">
@@ -533,7 +525,6 @@
 <section id="education" class="reveal">
   <div class="section-header">
     <h2 class="section-title">Education &amp; <span class="italic">background</span></h2>
-    <span class="section-caption">Academic journey</span>
   </div>
   <div class="edu-timeline">
     
@@ -592,8 +583,10 @@
         <span class="edu-period">Schooling</span>
       </div>
       <p class="edu-details">
-        Foundational schooling at one of Delhi's reputed Bal Bharati Public School branches. A strong academic environment that paired serious classroom rigour with extracurricular pursuits, including <strong style="color:var(--text);">competitive badminton</strong>. This was where curiosity, discipline, and the love of learning first took shape.
+        Foundational schooling at one of Delhi's reputed Bal Bharati Public School branches. A strong academic environment that paired serious classroom rigour with extracurricular pursuits, including <strong style="color:var(--text);">competitive badminton</strong>. This was where curiosity, discipline, and the love of learning first took shape. Secured <strong style="color:var(--text);">95.6%</strong> in Class 10th and <strong style="color:var(--text);">83.2%</strong> in Class 12th board exams.
       </p>
+      <span class="edu-pill">Class 10: 95.6%</span>
+      <span class="edu-pill">Class 12: 83.2%</span>
     </div>
   </div>
 </section>

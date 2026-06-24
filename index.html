@@ -16,9 +16,12 @@
     --bg-card: #16140f;
     --border: #1f1d18;
     --border-hover: #2d2a23;
-    --text: #f5f0e6;
-    --text-muted: #8a8478;
-    --text-dim: #4d4942;
+    
+    /* Brightened Text Colors */
+    --text: #ffffff; 
+    --text-muted: #b8b3a7; 
+    --text-dim: #7d776c; 
+    
     --accent: #d4a574;
     --accent-bright: #e8c89a;
     --accent-deep: #a37d4f;
@@ -101,14 +104,6 @@
   .portrait-frame:hover img { transform: scale(1.03); }
   .portrait-frame::after { content: ''; position: absolute; inset: 0;
     background: linear-gradient(to bottom, transparent 60%, rgba(10, 9, 8, 0.4)); pointer-events: none; }
-  .portrait-badge { position: absolute; background: var(--bg-elevated);
-    border: 1px solid var(--border-hover); padding: 0.85rem 1.1rem; border-radius: 2px;
-    font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
-    backdrop-filter: blur(10px); display: flex; align-items: center; gap: 0.5rem; z-index: 3; }
-  .badge-status { bottom: -1rem; left: -1rem; color: #4ade80; }
-  .badge-location { top: -1rem; right: -1rem; color: var(--accent); }
-  .status-dot { display: inline-block; width: 8px; height: 8px; background: #4ade80;
-    border-radius: 50%; animation: pulse 2s infinite; box-shadow: 0 0 12px #4ade80; }
   section { padding: 7rem 3rem; max-width: var(--max-width); margin: 0 auto; position: relative; }
   .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4.5rem;
     padding-bottom: 2rem; border-bottom: 1px solid var(--border); flex-wrap: wrap;
@@ -155,9 +150,7 @@
   .skill-card:hover { border-color: var(--border-hover); transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
   .skill-card:hover::before { width: 100%; }
-  .skill-icon { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim);
-    margin-bottom: 1rem; letter-spacing: 0.15em; }
-  .skill-title { font-family: var(--serif); font-size: 1.55rem; margin-bottom: 1rem;
+  .skill-title { font-family: var(--serif); font-size: 1.55rem; margin-bottom: 1.5rem;
     font-weight: 500; letter-spacing: -0.01em; }
   .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .skill-tag { font-family: var(--mono); font-size: 0.7rem; padding: 0.4rem 0.8rem;
@@ -179,11 +172,12 @@
   .achievement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
   .achievement-card { background: var(--bg-card); border: 1px solid var(--border);
     padding: 2.5rem; border-radius: 4px; position: relative; overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
   .achievement-card:hover { border-color: var(--accent-deep); transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
   .achievement-icon { font-family: var(--serif); font-size: 3rem; color: var(--accent);
     line-height: 1; margin-bottom: 1.2rem; font-style: italic; font-weight: 300; }
+  .achievement-img-icon { width: 50px; height: 50px; border-radius: 4px; object-fit: cover; margin-bottom: 1.2rem; }
   .achievement-card h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 500;
     margin-bottom: 0.6rem; letter-spacing: -0.01em; line-height: 1.3; }
   .achievement-org { font-family: var(--mono); font-size: 0.72rem; color: var(--accent);
@@ -207,24 +201,24 @@
     border-radius: 4px; padding: 1.5rem 2rem; margin-top: 2rem; font-family: var(--mono);
     font-size: 0.82rem; color: var(--accent); text-align: center; letter-spacing: 0.03em; }
   .edu-timeline { display: flex; flex-direction: column; gap: 1.5rem; }
-  .edu-card { background: var(--bg-card); border: 1px solid var(--border); padding: 2.8rem;
+  .edu-card { background: var(--bg-card); border: 1px solid var(--border); padding: 2.5rem;
     border-radius: 4px; position: relative; overflow: hidden; transition: all 0.4s; }
   .edu-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
   .edu-card.featured { background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
     border-color: var(--accent-deep); }
-  .edu-card::after { content: attr(data-watermark); position: absolute; top: 50%; right: -2rem;
-    transform: translateY(-50%); font-family: var(--serif); font-size: 11rem; font-weight: 900;
-    color: var(--accent); opacity: 0.04; line-height: 1; letter-spacing: -0.05em;
-    pointer-events: none; white-space: nowrap; }
+  .edu-card-image { width: 100%; height: 160px; overflow: hidden; border-radius: 4px; margin-bottom: 2rem; border: 1px solid var(--border); }
+  .edu-card-image img { width: 100%; height: 100%; object-fit: cover; }
   .edu-header { display: flex; justify-content: space-between; align-items: flex-start;
     margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1; }
-  .edu-school { font-family: var(--serif); font-size: 2rem; font-weight: 500;
-    letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .edu-title-group { display: flex; align-items: center; gap: 1.2rem; }
+  .edu-logo-img { width: 55px; height: 55px; border-radius: 4px; object-fit: contain; background: #fff; padding: 6px; border: 1px solid var(--border); }
+  .edu-school { font-family: var(--serif); font-size: 1.8rem; font-weight: 500;
+    letter-spacing: -0.02em; margin-bottom: 0.4rem; line-height: 1.2; }
   .edu-degree { color: var(--accent); font-family: var(--mono); font-size: 0.82rem;
-    text-transform: uppercase; letter-spacing: 0.12em; }
+    text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.4;}
   .edu-period { font-family: var(--mono); color: var(--text-muted); font-size: 0.85rem;
     background: var(--bg-elevated); padding: 0.4rem 0.8rem; border: 1px solid var(--border);
-    border-radius: 2px; white-space: nowrap; }
+    border-radius: 2px; white-space: nowrap; margin-top: 0.5rem; }
   .edu-details { color: var(--text-muted); line-height: 1.75; position: relative; z-index: 1; font-size: 1rem; }
   .edu-pill { display: inline-block; margin-top: 1rem; margin-right: 0.5rem;
     background: var(--accent-glow); color: var(--accent); padding: 0.4rem 0.85rem;
@@ -276,19 +270,18 @@
     .focus-item { grid-template-columns: 50px 1fr 30px; gap: 1rem; padding: 1.5rem 0; }
     .focus-content h3 { font-size: 1.3rem; }
     .edu-card { padding: 2rem; }
-    .edu-card::after { font-size: 7rem; }
     .edu-school { font-size: 1.5rem; }
+    .edu-title-group { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     .section-caption { text-align: left; }
-    .portrait-badge { font-size: 0.6rem; padding: 0.6rem 0.85rem; }
   }
 </style>
 </head>
 <body>
 
 <nav id="navbar">
-  <a href="#" class="logo">Kanav<span>.</span></a>
+  <a href="#" class="logo">Kanav Midha<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -305,7 +298,7 @@
     <div class="hero-meta">Software Engineer · Class of 2028</div>
     <h1>Building with <span class="accent">curiosity</span>, clarity, and craft.</h1>
     <p class="hero-subtitle">
-      Computer Science undergraduate at <strong>BITS Pilani</strong> and <strong>RMIT Melbourne</strong>, a dual-degree journey across two of the world's leading institutions. AI/ML enthusiast strengthening foundations in algorithms, systems, and intelligent applications.
+      Computer Science undergraduate at <strong>BITS Pilani, K.K. Birla Goa Campus</strong> and <strong>RMIT University, Melbourne</strong>, a dual-degree journey across two of the world's leading institutions. AI/ML enthusiast strengthening foundations in algorithms, systems, and intelligent applications.
     </p>
     <p class="hero-tagline">Moving to RMIT Melbourne in July 2026.</p>
     <div class="hero-cta">
@@ -328,9 +321,9 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm <span class="highlight">Kanav Midha</span>, born and raised in Delhi, where curiosity and academics became second nature at <span class="highlight">Bal Bharati Public School, GRH Marg</span>. Strong fundamentals there, combined with consistent preparation, helped me clear <span class="highlight">JEE Mains (AIR 33993)</span> and <span class="highlight">BITSAT</span> with ranks good enough to earn a seat in one of India's most selective engineering programmes.</p>
-      <p>Today, I'm pursuing a unique <span class="highlight">dual-degree</span>: a B.E. in Computer Science from <span class="highlight">BITS Pilani</span> and a B.Sc. in Software Engineering (Honours) from <span class="highlight">RMIT University, Melbourne</span>. The intersection of Indian academic rigor and Australian industry-focused learning is shaping how I think about software, systems, and the world they live in.</p>
+      <p>Today, I'm pursuing a unique <span class="highlight">dual-degree</span>: a B.E. in Computer Science from <span class="highlight">BITS Pilani, K.K. Birla Goa Campus</span> and a <span class="highlight">Bachelor of Engineering (BE) in Software Engineering (Honours)</span> from <span class="highlight">RMIT University, Melbourne</span>. The intersection of Indian academic rigor and Australian industry-focused learning is shaping how I think about software, systems, and the world they live in.</p>
       <p>Right now, I'm building serious depth in <span class="highlight">Data Structures &amp; Algorithms</span> and exploring the <span class="highlight">Machine Learning</span> ecosystem. I'm driven by a belief that the best engineers sit at the intersection of <span class="highlight">first-principles thinking</span> and real-world execution.</p>
-      <p>Beyond engineering, I unwind on the <span class="highlight">badminton</span> court and spend my reading time on <span class="highlight">government policy documents</span>, <span class="highlight">economics</span>, and <span class="highlight">geopolitics</span>. These pursuits sharpen the same systems-thinking I bring to code.</p>
+      <p>Beyond engineering, I unwind on the <span class="highlight">badminton</span> court and spend my reading time on <span class="highlight">economics</span>. These pursuits sharpen the same systems-thinking I bring to code.</p>
     </div>
     <div class="about-side">
       <div class="about-portrait">
@@ -339,11 +332,11 @@
       </div>
       <div class="about-stats">
         <div class="stat">
-          <div class="stat-number">8.07</div>
+          <div class="stat-number">8.1</div>
           <div class="stat-label">CGPA at BITS</div>
         </div>
         <div class="stat">
-          <div class="stat-number">3.8 / 4</div>
+          <div class="stat-number">3.8</div>
           <div class="stat-label">GPA at RMIT</div>
         </div>
         <div class="stat">
@@ -362,11 +355,9 @@
 <section id="skills" class="reveal">
   <div class="section-header">
     <h2 class="section-title">Technical <span class="italic">stack</span></h2>
-    <span class="section-caption">Tools and technologies</span>
   </div>
   <div class="skills-grid reveal-stagger">
     <div class="skill-card">
-      <div class="skill-icon">// LANG.01</div>
       <h3 class="skill-title">Languages</h3>
       <div class="skill-list">
         <span class="skill-tag primary">C++</span>
@@ -377,7 +368,6 @@
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">// CS.02</div>
       <h3 class="skill-title">Computer Science</h3>
       <div class="skill-list">
         <span class="skill-tag primary">Data Structures</span>
@@ -388,7 +378,6 @@
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">// AI.03</div>
       <h3 class="skill-title">AI / Machine Learning</h3>
       <div class="skill-list">
         <span class="skill-tag primary">Python ML</span>
@@ -398,7 +387,6 @@
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">// WEB.04</div>
       <h3 class="skill-title">Web and Full-Stack</h3>
       <div class="skill-list">
         <span class="skill-tag primary">HTML / CSS</span>
@@ -407,7 +395,6 @@
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">// DB.05</div>
       <h3 class="skill-title">Data and Databases</h3>
       <div class="skill-list">
         <span class="skill-tag primary">SQL</span>
@@ -416,7 +403,6 @@
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon">// TL.06</div>
       <h3 class="skill-title">Tools and Workflow</h3>
       <div class="skill-list">
         <span class="skill-tag">Git</span>
@@ -484,7 +470,7 @@
   </div>
   <div class="achievement-grid reveal-stagger">
     <div class="achievement-card">
-      <div class="achievement-icon">★</div>
+      <img src="PMP%20logo.jpeg" alt="Peer Mentorship Program Logo" class="achievement-img-icon">
       <h3>Best Mentor Award</h3>
       <div class="achievement-org">Peer Mentorship Programme · BITS Pilani Goa</div>
       <p class="achievement-desc">Recognised by the PMP at BITS Pilani Goa for outstanding contribution as a mentor, guiding incoming students through academic and campus life with clarity, patience, and care.</p>
@@ -550,44 +536,58 @@
     <span class="section-caption">Academic journey</span>
   </div>
   <div class="edu-timeline">
-    <div class="edu-card featured" data-watermark="RMIT">
+    
+    <div class="edu-card featured">
+      <div class="edu-card-image">
+        <img src="RMIT%20Photo.jpg" alt="RMIT University Campus" />
+      </div>
       <div class="edu-header">
-        <div>
-          <h3 class="edu-school">RMIT University, Melbourne</h3>
-          <div class="edu-degree">B.Sc. Software Engineering (Honours)</div>
+        <div class="edu-title-group">
+          <img src="RMIT%20Logo.jpeg" alt="RMIT Logo" class="edu-logo-img">
+          <div>
+            <h3 class="edu-school">RMIT University, Melbourne</h3>
+            <div class="edu-degree">Bachelor of Engineering (BE) in Software Engineering (Honours)</div>
+          </div>
         </div>
         <span class="edu-period">Jul 2026 onward</span>
       </div>
       <p class="edu-details">
-        Moving to RMIT University in Melbourne, Australia in July 2026 to continue the dual-degree journey. RMIT is currently ranked <strong style="color:var(--text);">#125 globally</strong> in the QS World University Rankings 2026, and the 10th-best university in Australia. RMIT holds the rare distinction of being the only Australian institution permitted to use the prefix "<em style="color:var(--accent);">Royal</em>," conferred by Queen Elizabeth II for its educational service to the Commonwealth. Its motto, "A skilled hand, a cultivated mind," captures the university's century-long focus on industry-aligned, applied learning.
+        Moving to RMIT University in Melbourne, Australia in July 2026 to continue the dual-degree journey. RMIT is a global university of technology, design, and enterprise based in Melbourne, Australia. Ranked #125 globally, it is renowned for industry-aligned, applied learning and holds a rare royal patronage conferred by Queen Elizabeth II. 
       </p>
-      <span class="edu-pill">GPA 3.8 / 4.0</span>
+      <span class="edu-pill">GPA 3.8</span>
       <span class="edu-pill">Starting July 2026</span>
       <span class="edu-pill">QS #125 Globally</span>
-      <span class="edu-pill">Royal Patronage</span>
     </div>
 
-    <div class="edu-card" data-watermark="BITS">
+    <div class="edu-card">
+      <div class="edu-card-image">
+        <img src="BITS%20Pilani%20Photo.jpeg" alt="BITS Pilani Goa Campus" />
+      </div>
       <div class="edu-header">
-        <div>
-          <h3 class="edu-school">Birla Institute of Technology &amp; Science</h3>
-          <div class="edu-degree">B.E. Computer Science · Pilani Goa Campus</div>
+        <div class="edu-title-group">
+          <img src="BITS_Pilani-Logo.jpg" alt="BITS Pilani Logo" class="edu-logo-img">
+          <div>
+            <h3 class="edu-school">BITS Pilani, K.K. Birla Goa Campus</h3>
+            <div class="edu-degree">B.E. Computer Science</div>
+          </div>
         </div>
         <span class="edu-period">2024 to 2026</span>
       </div>
       <p class="edu-details">
-        The Indian leg of the BITS-RMIT dual-degree programme at India's premier private university. BITS Pilani is ranked <strong style="color:var(--text);">#668 globally</strong> in QS World University Rankings 2026 and <strong style="color:var(--text);">#154 in Asia</strong>, making it the fastest-rising Indian university in QS rankings over the past four years. Recognised as the No. 1 private university in India for Employment Outcomes, BITS carries a legacy of producing engineers, founders, and leaders who shape the global technology landscape.
+        The Indian leg of the BITS-RMIT dual-degree programme at India's premier private university. Globally recognized for technical excellence and employment outcomes, BITS carries a legacy of producing engineers, founders, and leaders who shape the global technology landscape.
       </p>
-      <span class="edu-pill">CGPA 8.07 / 10</span>
-      <span class="edu-pill">QS #668 · #154 Asia</span>
+      <span class="edu-pill">CGPA 8.1 / 10</span>
+      <span class="edu-pill">QS #154 Asia</span>
       <span class="edu-pill">No. 1 Private (Employment)</span>
     </div>
 
-    <div class="edu-card" data-watermark="SCHOOL">
+    <div class="edu-card">
       <div class="edu-header">
-        <div>
-          <h3 class="edu-school">Bal Bharati Public School</h3>
-          <div class="edu-degree">Ganga Ram Hospital Marg · Delhi</div>
+        <div class="edu-title-group">
+          <div>
+            <h3 class="edu-school">Bal Bharati Public School</h3>
+            <div class="edu-degree">Ganga Ram Hospital Marg · Delhi</div>
+          </div>
         </div>
         <span class="edu-period">Schooling</span>
       </div>
